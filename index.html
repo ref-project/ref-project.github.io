@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REF PROJECT</title>
-    <link rel="icon" href="https://files.catbox.moe/dmyrjl.jpg" type="image/jpg">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,12 +36,27 @@
     <h1>REF PROJECT</h1>
 
     <div class="links">
-        <a href="#discord">Discord Server</a>
+        <a href="javascript:od()" id="d">Discord Server</a>
         <a href="#music">Our Music</a>
         <a href="javascript:alert('jefsu i dj szczepan')">Members</a>
         <a href="https://files.catbox.moe/auff36.mp4">ASMR Collection</a>
         <a href="https://szkolni.github.io/vip/refsu.html">Random Link</a> <!-- Added Random Link -->
+        
     </div>
+<script>
+    function od() {
+      	var link = document.getElementById('d');
+        document.body.style.cursor = 'wait';
+				link.innerHTML = 'Encoding... <img src="https://i.imgur.com/llF5iyg.gif" alt="loading" width="20">';
+        // Attempt to open Discord app
+        window.location = "discord://discordapp.com/channels/1311014737034608802/1311014737579872379";
+        setTimeout(() => {
+            document.body.style.cursor = 'default';
+            window.location = "https://discord.com/invite/bXw9Fu5p";
+            link.innerHTML = 'Discord Server ✓';
+        }, 1000);
+    }
+</script>
 
 </body>
 </html>
