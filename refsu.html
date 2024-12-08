@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Refsu core</title>
+        <style>
+            video {width: 430px; margin: 10px;}
+            body {text-align: center; background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh; font-family: Arial, sans-serif; background-image: url('https://files.catbox.moe/sz2d4n.jpg');}
+            button {font-size: larger;}
+        </style>
+    </head>
+    <body>
+        <button>Zagraj</button><br><br>
+        <video loop src="https://files.catbox.moe/wgni3l.mp4"></video>
+        <video loop src="https://files.catbox.moe/t414zy.mp4"></video>
+        <video loop src="https://files.catbox.moe/7qqxgr.mp4"></video>
+        <video loop src="https://files.catbox.moe/6wdagr.mp4"></video>
+        <video loop src="https://files.catbox.moe/n607dy.mp4"></video>
+        <video loop src="https://files.catbox.moe/djiz11.mp4"></video>
+        <script>
+            document.querySelector('button').addEventListener('click', () => {document.querySelectorAll('video').forEach(video => video.play());});
+            document.querySelectorAll('video').forEach(video => {video.addEventListener('contextmenu', (event) => {event.preventDefault();});});
+        </script>
+    </body>
+</html>
