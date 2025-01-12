@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Refsu core</title>
+        <style>
+            video {width: 400px; margin: 10px;}
+            body {text-align: center; background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh; font-family: Arial, sans-serif; background-image: url('https://cdn.discordapp.com/attachments/1311341289958015098/1312085863806537768/ref_project02.png?ex=674b36af&is=6749e52f&hm=c96b79355247547bb28261346f2a4e1e493f1d7e0dda55db5f543cb855745c68&');}
+            button {font-size: larger;}
+        </style>
+    </head>
+    <body>
+        <button>Zagraj</button><br><br>
+        <video loop src="https://cdn.discordapp.com/attachments/1267394885451907082/1267395101987049493/VID_20240618_075333_1.mp4?ex=674ac9ab&is=6749782b&hm=1f89ee29542a1a4d8175cd7f10da6ad98b2ee4fcf4ddb0f26df47829a6b8b319&"></video>
+        <video loop src="https://cdn.discordapp.com/attachments/1267394885451907082/1300408559758213181/VID_20240618_075138_1-1.mp4?ex=674aeb59&is=674999d9&hm=f9d1299feab6945fbb3f8a76d2b729b102d8be7d42fdd2ee6c8f4d9db4156a8f&"></video>
+        <video loop src="https://cdn.discordapp.com/attachments/1267394885451907082/1300743275585474580/lv_0_20240525221122_1.mp4?ex=674ad193&is=67498013&hm=6151d4d055abc49df7131fecc901a9503b0a096a8aac75f32cd39a1d85133774&"></video>
+        <video loop src="https://cdn.discordapp.com/attachments/1267394885451907082/1300744148642562078/lv_0_20240525220721_1.mp4?ex=674ad263&is=674980e3&hm=1e050ff8547ce2979ae882ef6d10d29be257875ff78b5cccfc8c90e2479692d6&"></video>
+        <script>
+            document.querySelector('button').addEventListener('click', () => {document.querySelectorAll('video').forEach(video => video.play());});
+            document.querySelectorAll('video').forEach(video => {video.addEventListener('contextmenu', (event) => {event.preventDefault();});});
+        </script>
+    </body>
+</html>
