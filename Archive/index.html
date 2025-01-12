@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="REF Project">
+    <meta property="og:description" content="Zarchiwizowana strona internetowa">
+    <meta property="og:image" content="https://files.catbox.moe/sz2d4n.jpg">
+    <meta property="og:url" content="https://ref-project.github.io/Archive"> <!-- Zamień na faktyczny adres -->
+    <meta property="og:type" content="website">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="REF Project">
+    <meta name="twitter:description" content="Zarchiwizowana strona internetowa">
+    <meta name="twitter:image" content="https://files.catbox.moe/sz2d4n.jpg">
+    <title>REF PROJECT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #28a745; /* Green background */
+        }
+        h1 {
+            font-size: 72px;
+            margin-top: 50px;
+            color: white; /* White text for contrast */
+        }
+        .links {
+            margin-top: 30px;
+        }
+        .links a {
+            font-size: 20px;
+            color: white; /* White text for links */
+            text-decoration: none;
+            margin: 10px 20px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>REF PROJECT</h1>
+
+    <div class="links">
+        <a href="javascript:od()" id="d">Discord Server</a>
+        <a href="#music">Our Music</a>
+        <a href="javascript:alert('jefsu i dj szczepan')">Members</a>
+        <a href="https://files.catbox.moe/auff36.mp4">ASMR Collection</a>
+        <a href="refsu.html">Random Link</a>
+    </div>
+<script>
+    function od() {
+      	var link = document.getElementById('d');
+        document.body.style.cursor = 'wait';
+	link.innerHTML = 'Encoding... <img src="https://i.imgur.com/llF5iyg.gif" alt="loading" width="20">';
+        // Attempt to open Discord app
+        window.location = "discord://-/";
+        setTimeout(() => {
+            document.body.style.cursor = 'default';
+            window.location = "https://discord.com/invite/bXw9Fu5p";
+            link.innerHTML = 'Discord Server ✓';
+        }, 300);
+    }
+</script>
+
+</body>
+</html>
