@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OBS Jumpscares</title>
+        <style>
+            video {width: 430px; margin: 10px;}
+            body {text-align: center; background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh; font-family: Arial, sans-serif; background-image: url('https://files.catbox.moe/sz2d4n.jpg');}
+            button {font-size: larger;}
+        </style>
+    </head>
+    <body>
+        <button>LOUDY SHAKI</button>  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"><i class="fas fa-info-circle" onclick="alert('warning loud voices')"></i>
+<br><br>
+        <video loop src="https://files.catbox.moe/tuqbn4.mp4"></video>
+        <video loop src="https://files.catbox.moe/ilv94h.mp4"></video>
+        <video loop src="https://files.catbox.moe/etoh9l.mp4"></video><br>
+        <video loop src="https://files.catbox.moe/tnezjh.mp4"></video>
+        <script>
+            document.querySelector('button').addEventListener('click', () => {document.querySelectorAll('video').forEach(video => video.play());});
+            document.querySelectorAll('video').forEach(video => {video.addEventListener('contextmenu', (event) => {event.preventDefault();});});
+        </script>
+    </body>
+</html>
