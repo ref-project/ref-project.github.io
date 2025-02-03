@@ -8,7 +8,7 @@ if (params.has("refsu")) {
     'videos': ['https://files.catbox.moe/wgni3l.mp4', 'https://files.catbox.moe/t414zy.mp4', 'https://files.catbox.moe/7qqxgr.mp4', 'https://files.catbox.moe/6wdagr.mp4', 'https://files.catbox.moe/n607dy.mp4', 'https://files.catbox.moe/djiz11.mp4'],
     'brwhen': false
   }
-  setup()
+  setup(configs)
 } else if (params.has("obs")) {
   const configs = {
     'title': 'OBS Jumpscares',
@@ -17,12 +17,12 @@ if (params.has("refsu")) {
     'videos': ['https://files.catbox.moe/tuqbn4.mp4', 'https://files.catbox.moe/ilv94h.mp4', 'https://files.catbox.moe/etoh9l.mp4', 'https://files.catbox.moe/tnezjh.mp4'],
     'brwhen': '3'
   }
-  setup()
+  setup(configs)
 } else {
   window.location.href = 'https://linktr.ee/refproject#header-437047852'
 }
 
-function setup() {
+function setup(configs) {
   // Title
   document.title = configs.title
   // Button & Info
