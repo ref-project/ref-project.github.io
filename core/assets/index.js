@@ -25,18 +25,20 @@ if (params.has("refsu")) {
 function setup(configs) {
   // Title
   document.title = configs.title
-  // Button & Info
-  document.body.innerHTML = `<button>` + configs.button + `</button><i class="fas fa-info-circle" onclick="alert('` + configs.info + `')"></i><br><br>`
-  // Videos
-  configs.videos.forEach((src, index) => {
-    const video = document.createElement('video');
-    video.src = src;
-    video.loop = true
-    document.body.appendChild(video);
-    if (configs.brwhen == false) {return}
-    if ((index + 1) % configs.brwhen === 0) {
-        container.appendChild(document.createElement('br'));
-    }
+  document.addEventListener("DOMContentLoaded", () => {
+    // Buttons & info
+    document.body.innerHTML = `<button>` + configs.button + `</button><i class="fas fa-info-circle" onclick="alert('` + configs.info + `')"></i><br><br>`
+    // Videos
+    configs.videos.forEach((src, index) => {
+      const video = document.createElement('video');
+      video.src = src;
+      video.loop = true
+      document.body.appendChild(video);
+      if (configs.brwhen == false) {return}
+      if ((index + 1) % configs.brwhen === 0) {
+        document.body.appendChild(document.createElement('br'));
+      }
+    });
   });
   // Last
   document.querySelector('button').addEventListener('click', () => {document.querySelectorAll('video').forEach(video => video.play());});
