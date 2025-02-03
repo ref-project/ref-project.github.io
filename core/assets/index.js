@@ -27,20 +27,21 @@ function setup(configs) {
   document.title = configs.title
   document.addEventListener("DOMContentLoaded", () => {
     // Buttons & info
-    document.body.innerHTML = `<button>` + configs.button + `</button><i class="fas fa-info-circle" onclick="alert('` + configs.info + `')"></i><br><br>`
+    document.body.innerHTML = `<button>` + configs.button + `</button>  <i class="fas fa-info-circle" onclick="alert('` + configs.info + `')"></i><br><br>`
     // Videos
     configs.videos.forEach((src, index) => {
       const video = document.createElement('video');
       video.src = src;
       video.loop = true
       document.body.appendChild(video);
-      if (configs.brwhen == false) {return}
-      if ((index + 1) % configs.brwhen === 0) {
-        document.body.appendChild(document.createElement('br'));
+      if (!configs.brwhen == false) {
+        if ((index + 1) % configs.brwhen === 0) {
+          document.body.appendChild(document.createElement('br'));
+        }
       }
     });
+    // Last
+    document.querySelector('button').addEventListener('click', () => {document.querySelectorAll('video').forEach(video => video.play());});
+    document.querySelectorAll('video').forEach(video => {video.addEventListener('contextmenu', (event) => {event.preventDefault();});});
   });
-  // Last
-  document.querySelector('button').addEventListener('click', () => {document.querySelectorAll('video').forEach(video => video.play());});
-  document.querySelectorAll('video').forEach(video => {video.addEventListener('contextmenu', (event) => {event.preventDefault();});});
 }
