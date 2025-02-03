@@ -88,7 +88,7 @@ function playVideos() {
   }
   if (params.has("refsu")) {
     history.replaceState(null, "", location.pathname + "?refsu");
-  } else (params.has("obs")) {
+  } else if (params.has("obs")) {
     history.replaceState(null, "", location.pathname + "?obs");
   }
   // 7. Crash Browser
