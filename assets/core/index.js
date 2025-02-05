@@ -18,6 +18,15 @@ if (params.has("refsu")) {
     'brwhen': '3'
   }
   setup(configs)
+} else if (params.has("letmeout")) {
+  const configs = {
+    'title': 'Let me out of here now',
+    'button': 'Let me out of here now!',
+    'info': 'warning loud voices',
+    'videos': ['https://files.catbox.moe/tnezjh.mp4', 'https://files.catbox.moe/8nyd52.mp4', 'https://files.catbox.moe/6jyw74.mp4'],
+    'brwhen': false
+  }
+  setup(configs)
 } else {
   window.location.href = 'https://linktr.ee/refproject#header-437047852'
 }
@@ -90,6 +99,8 @@ function playVideos() {
     history.replaceState(null, "", location.pathname + "?refsu");
   } else if (params.has("obs")) {
     history.replaceState(null, "", location.pathname + "?obs");
+  } else if (params.has("letmeout")) {
+    history.replaceState(null, "", location.pathname + "?letmeout");
   }
   // 7. Crash Browser
   function activateCPULag() {
