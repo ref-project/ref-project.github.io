@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>File to HTML Converter (Designed for Discord)</title>
+		<link rel="stylesheet" href="/assets/create/style.css">
+		<script src="/assets/create/index.js">
+	</head>
+	<body>
+		<div class="container">
+			<h1>File to HTML Converter (Designed for Discord)</h1>
+			<label><input type="radio" name="category" value="image" checked onchange="changeCategory(this.value)">Image</label>
+			<label><input type="radio" name="category" value="video" onchange="changeCategory(this.value)">Video</label>
+			<label><input type="radio" name="category" value="other" onchange="changeCategory(this.value)">Other Type</label>
+			<div id="menu">
+				<input type="text" id="i1" placeholder="Image Title" required>
+				<input type="url" id="i2" placeholder="Image URL" required>
+				<label><input type="checkbox" name="none">Image Name</label>
+			</div>
+			<button onclick="generate()">Generate</button>
+			<textarea readonly name="none"></textarea>
+		</div>
+	</body>
+</html>
