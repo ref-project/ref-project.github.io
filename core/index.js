@@ -5,7 +5,7 @@ if (params.has("refsu")) {
     'title': 'Refsu core',
     'button': 'Zagraj',
     'info': '5 ver. images/videos are available forever.',
-    'videos': ['https://3d1.serv00.net/videos/refsucore1.mp4', 'https://3d1.serv00.net/videos/refsucore2.mp4', 'https://3d1.serv00.net/videos/refsucore3.mp4', 'https://3d1.serv00.net/videos/refsucore4.mp4', 'https://3d1.serv00.net/videos/refsucore5.mp4', 'https://3d1.serv00.net/videos/refsucore6.mp4'],
+    'videos': ['https://refproject.nekoweb.org/videos/refsucore1.mp4', 'https://refproject.nekoweb.org/videos/refsucore2.mp4', 'https://refproject.nekoweb.org/videos/refsucore3.mp4', 'https://refproject.nekoweb.org/videos/refsucore4.mp4', 'https://3d1.serv00.net/videos/refsucore5.mp4', 'https://3d1.serv00.net/videos/refsucore6.mp4'],
     'brwhen': false
   }
   setup(configs)
@@ -14,7 +14,7 @@ if (params.has("refsu")) {
     'title': 'OBS Jumpscares',
     'button': 'LOUDY SHAKI',
     'info': 'warning loud voices',
-    'videos': ['https://3d1.serv00.net/videos/obs1.mp4', 'https://3d1.serv00.net/videos/obs2.mp4', 'https://3d1.serv00.net/videos/obs3.mp4', 'https://3d1.serv00.net/videos/obs4.mp4'],
+    'videos': ['https://refproject.nekoweb.org/videos/obs1.mp4', 'https://refproject.nekoweb.org/videos/obs2.mp4', 'https://refproject.nekoweb.org/videos/obs3.mp4', 'https://refproject.nekoweb.org/videos/obs4.mp4'],
     'brwhen': '3'
   }
   setup(configs)
@@ -23,7 +23,7 @@ if (params.has("refsu")) {
     'title': 'Let me out of here now',
     'button': 'Let me out of here now!',
     'info': 'warning loud voices, but who gave you the permission to leave to room!',
-    'videos': ['https://3d1.serv00.net/videos/schoolboy1.mp4', 'https://3d1.serv00.net/videos/schoolboy2.mp4', 'https://3d1.serv00.net/videos/schoolboy3.mp4'],
+    'videos': ['https://refproject.nekoweb.org/videos/schoolboy1.mp4', 'https://refproject.nekoweb.org/videos/schoolboy2.mp4', 'https://refproject.nekoweb.org/videos/schoolboy3.mp4'],
     'brwhen': false
   }
   setup(configs)
