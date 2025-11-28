@@ -1,0 +1,96 @@
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+h1 {
+  margin-bottom: 20px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  max-width: 900px;
+  margin: auto;
+}
+.gallery a {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.gallery a:hover {
+  transform: scale(1.05);
+}
+.gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s ease-in-out;
+}
+.gallery a:hover img {
+  filter: brightness(80%) contrast(110%);
+}
+.gallery a:active {
+  transform: scale(0.95);
+}
+.caption {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  min-height: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.gallery a:hover .caption {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.player-container {
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+}
+video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: 2px solid #ffffff;
+  background: black;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+button, select {
+  background-color: #1e1e1e;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button:hover, select:hover {
+  background-color: #333;
+}
+span {
+  padding: 10px;
+  padding-right: 0;
+}
