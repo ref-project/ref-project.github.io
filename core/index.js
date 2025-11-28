@@ -28,7 +28,7 @@ if (params.has("refsu")) {
   }
   setup(configs)
 } else {
-  window.location.href = 'https://refproject.neocities.org'
+  window.location.href = '/'
 }
 
 function setup(configs) {
