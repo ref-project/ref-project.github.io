@@ -1,3 +1,6 @@
+---
+permalink: /musics
+---
 Albion online
 Albion online 2
 Blow Ya Mind

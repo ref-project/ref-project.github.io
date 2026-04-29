@@ -1,3 +1,7 @@
+---
+permalink: /css/service
+---
+{% raw %}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -51,3 +55,4 @@ a:hover {
 .shutdown a {
     display: block;
 }
+{% endraw %}

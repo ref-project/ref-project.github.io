@@ -1,0 +1,18 @@
+---
+permalink: /css/flowerbox
+---
+{% raw %}
+html, body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #000000;
+	color: #ffffff;
+}
+div {
+	font-family: verdana;
+}
+canvas {
+	background-color: #000000;
+}
+{% endraw %}

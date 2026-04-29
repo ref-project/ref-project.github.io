@@ -1,0 +1,27 @@
+---
+permalink: /granny/video
+---
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granny Collection Video</title>
+    <link rel="stylesheet" href="/css/granny">
+</head>
+<body>
+    <h1>Granny Collection Video</h1>
+    <div class="player-container">
+        <video id="videoPlayer" controls controlsList="nodownload noplaybackrate" disablePictureInPicture autoplay>
+            <source id="videoSource" src="" type="video/mp4">
+            Twoja przeglądarka nie obsługuje elementu wideo.
+        </video>
+        <div class="controls">
+            <span>Powtarzaj:</span>
+            <input type="checkbox" id="videoLoop">
+            <select id="videoList"></select>
+        </div>
+    </div>
+    <script src="/js/granny"></script>
+</body>
+</html>
