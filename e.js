@@ -9,7 +9,7 @@ if (params.has("refsu")) {
     'title': 'Refsu core',
     'button': 'Zagraj',
     'info': '5 ver. images/videos are available forever.',
-    'videos': ['https://refproject.nekoweb.org/videos/refsucore1.mp4', 'https://refproject.nekoweb.org/videos/refsucore2.mp4', 'https://refproject.nekoweb.org/videos/refsucore3.mp4', 'https://refproject.nekoweb.org/videos/refsucore4.mp4', 'https://3d1.serv00.net/videos/refsucore5.mp4', 'https://3d1.serv00.net/videos/refsucore6.mp4'],
+    'videos': ['https://refproject.nekoweb.org/videos/refsucore1.mp4', 'https://refproject.nekoweb.org/videos/refsucore2.mp4', 'https://refproject.nekoweb.org/videos/refsucore3.mp4', 'https://refproject.nekoweb.org/videos/refsucore4.mp4', 'https://refproject.nekoweb.org/videos/refsucore5.mp4', 'https://refproject.nekoweb.org/videos/refsucore6.mp4'],
     'brwhen': false
   }
   setup(configs)
